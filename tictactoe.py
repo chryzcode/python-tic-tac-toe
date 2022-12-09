@@ -1,14 +1,14 @@
 board = [' ' for x in range(10)]
 
-def insertLetter(letter,pos):
+def insertLetter(letter,pos): #FUNCTION FOR INSERTING A LETTER INTO BOARD.
     board[pos] = letter
 
-def spaceIsFree(pos):
+def spaceIsFree(pos):          #FUNCTION FOR RETURNING THE BOARD WITH ' '.
     return board[pos] == ' '
 
-def printBoard(board):
+def printBoard(board):             #THIS FUNCTION IS FOR PRINTING THE BOARD,THE TABLE IN WHICH THE TIC TAC TOE GAME IS PLAYED.
     print('   |   |   ')
-    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
+    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])   
     print('   |   |   ')
     print('------------')
     print('   |   |   ')
@@ -19,13 +19,13 @@ def printBoard(board):
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('   |   |   ')
 
-def isBoardFull(board):
+def isBoardFull(board):       #IN THIS FUNCTION IF THE PLACE OF A SINGLE BOX IS FILLED IT IS COUNTED AS 1.
     if board.count(' ') > 1:
         return False
     else:
         return True
 
-def IsWinner(b,l):
+def IsWinner(b,l):           #THIS FUNCTION SHOWS THE COMBINATIONS FOR THE PLAYER TO WIN THE GAME,THE LOGIC BEHIND THE GAME.
     return ((b[1] == l and b[2] == l and b[3] == l) or
     (b[4] == l and b[5] == l and b[6] == l) or
     (b[7] == l and b[8] == l and b[9] == l) or
@@ -35,7 +35,7 @@ def IsWinner(b,l):
     (b[1] == l and b[5] == l and b[9] == l) or
     (b[3] == l and b[5] == l and b[7] == l))
 
-def playerMove():
+def playerMove():   #FUNCTION FOR MAKING THE USER TO INPUT THE POSITION THEY WANT TO PUT 'X' OR 'O'.
     run = True
     while run:
         move = input("please select a position to enter the X between 1 to 9\n")
@@ -53,7 +53,7 @@ def playerMove():
         except:
             print('Please type a number')
 
-def computerMove():
+def computerMove(): #THIS PROGRAM IS USER VS THE COMPUTER SO THE FOLLOWING FUNCTION IS THE MOVES THE COMPUTER CAN MAKE.
     possibleMoves = [x for x , letter in enumerate(board) if letter == ' ' and x != 0  ]
     move = 0
 
